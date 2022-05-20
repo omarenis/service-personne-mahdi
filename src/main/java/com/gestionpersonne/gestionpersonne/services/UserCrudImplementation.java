@@ -32,6 +32,31 @@ public class UserCrudImplementation implements UserCrudInterface {
     public List<? extends CustomUser> findAll() {
         return this.userRepository.findAll();
     }
+
+    @Override
+    public Optional<? extends CustomUser> findByUsername(String username) {
+        return Optional.ofNullable(this.userRepository.findByUsername(username));
+    }
+
+    public List<? extends CustomUser> findByUsernameContaining(String username) {
+        return this.userRepository.findByUsernameContaining(username);
+    }
+
+    @Override
+    public List<? extends Person> findByFirstnameContaining() {
+        return null;
+    }
+
+    @Override
+    public List<? extends Person> findByLastnameContaining() {
+        return null;
+    }
+
+    @Override
+    public List<? extends Person> findByEmail() {
+        return null;
+    }
+
     public Optional<? extends Person> findPersonByIdAndTypeUser(Long id, String typeUser)
     {
         if (typeUser.equals("client"))
